@@ -10,38 +10,43 @@ const Login = () => {
   });
 
   const inputEvent = (event) => {
-    const { value, name } = event.target;
+    const { name, value } = event.target;
 
     setFullName((preValue) => {
-      if (name === "fName") {
-        return {
-          fname: value,
-          lname: preValue.lname,
-          email: preValue.email,
-          phone: preValue.phone,
-        };
-      } else if (name === "lName") {
-        return {
-          fname: preValue.fname,
-          lname: value,
-          email: preValue.email,
-          phone: preValue.phone,
-        };
-      } else if (name === "email") {
-        return {
-          fname: preValue.fname,
-          lname: preValue.lname,
-          email: value,
-          phone: preValue.phone,
-        };
-      } else if (name === "phone") {
-        return {
-          fname: preValue.fname,
-          lname: preValue.lname,
-          email: preValue.email,
-          phone: value,
-        };
-      }
+      return {
+        ...preValue,
+        [name]: value,
+      };
+
+      // if (name === "fName") {
+      //   return {
+      //     fname: value,
+      //     lname: preValue.lname,
+      //     email: preValue.email,
+      //     phone: preValue.phone,
+      //   };
+      // } else if (name === "lName") {
+      //   return {
+      //     fname: preValue.fname,
+      //     lname: value,
+      //     email: preValue.email,
+      //     phone: preValue.phone,
+      //   };
+      // } else if (name === "email") {
+      //   return {
+      //     fname: preValue.fname,
+      //     lname: preValue.lname,
+      //     email: value,
+      //     phone: preValue.phone,
+      //   };
+      // } else if (name === "phone") {
+      //   return {
+      //     fname: preValue.fname,
+      //     lname: preValue.lname,
+      //     email: preValue.email,
+      //     phone: value,
+      //   };
+      // }
     });
   };
 
@@ -62,7 +67,7 @@ const Login = () => {
           <input
             type="text"
             placeholder="Enter Name"
-            name="fName"
+            name="fname"
             onChange={inputEvent}
             value={fullName.fname}
           />
@@ -70,7 +75,7 @@ const Login = () => {
           <input
             type="text"
             placeholder="Enter Last Name"
-            name="lName"
+            name="lname"
             onChange={inputEvent}
             value={fullName.lname}
           />
