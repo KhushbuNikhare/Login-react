@@ -57,7 +57,7 @@ const Login = () => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="form">
         <div>
           <h1>
             Hello {fullName.fname} {fullName.lname}
